@@ -1,0 +1,29 @@
+import {BrowserRouter, Route, Switch} from 'react-router-dom'
+
+import Header from './components/Header'
+import About from './components/About'
+import Contact from './components/Contact'
+import BlogsList from './components/BlogsList'
+import NotFound from './components/NotFound'
+
+// Adding BlogItemDetails Route (Not one by one there use id for iteration)
+//  (1) import "BlogItemDetails"
+import BlogItemDetails from './components/BlogItemDetails'
+
+import './App.css'
+
+const App = () => (
+  <BrowserRouter>
+    <Header />
+    <Switch>
+      <Route exact path="/" component={BlogsList} />
+      <Route exact path="/about" component={About} />
+      <Route exact path="/contact" component={Contact} />
+      {/* (2) Specified the "Path" for "BlogItemDetailsS"  */}
+      <Route path="/blogs/:id" component={BlogItemDetails} />
+      <Route component={NotFound} />
+    </Switch>
+  </BrowserRouter>
+)
+
+export default App
